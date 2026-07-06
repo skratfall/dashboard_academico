@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Académico Estudiantil</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <!-- PDF export -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============================================================
+     BOTÓN HAMBURGUESA (solo visible en móvil)
+     ============================================================ -->
+<button class="toggle-btn" id="toggleSidebar" aria-label="Menú">
+  <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <line x1="3" y1="6"  x2="21" y2="6"/>
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+
+<!-- Overlay para cerrar sidebar en móvil -->
+<div class="overlay" id="overlay"></div>
+
+<!-- ============================================================
+     SIDEBAR
+     ============================================================ -->
+<aside class="sidebar" id="sidebar">
+
+  <div class="logo">
+    <h1>Dashboard<br>Académico</h1>
+    <span>Análisis Estudiantil</span>
+  </div>
+
+  <div class="nav-section">Principal</div>
+  <nav class="nav">
+    <a class="active" onclick="navTo('inicio')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      Inicio
+    </a>
+    <a onclick="navTo('materias')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/>
+        <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+      </svg>
+      Materias
+    </a>
+    <a onclick="navTo('calculadora')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <rect x="4" y="2" width="16" height="20" rx="2"/>
+        <line x1="8"  y1="6"  x2="16" y2="6"/>
+        <line x1="8"  y1="10" x2="16" y2="10"/>
+        <line x1="8"  y1="14" x2="12" y2="14"/>
+      </svg>
+      Calculadora
+    </a>
+    <a onclick="navTo('simulador')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12 6 12 12 16 14"/>
+      </svg>
+      Simulador
+    </a>
+  </nav>
+
+  <div class="nav-section">Estadísticas</div>
+  <nav class="nav">
+    <a onclick="navTo('graficas')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <line x1="18" y1="20" x2="18" y2="10"/>
+        <line x1="12" y1="20" x2="12" y2="4"/>
+        <line x1="6"  y1="20" x2="6"  y2="14"/>
+      </svg>
+      Gráficas
+    </a>
+    <a onclick="navTo('config')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+      </svg>
+      Configuración
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <!-- Botón para cambiar entre modo oscuro y modo claro -->
+    <button class="theme-btn" id="theme-btn" onclick="toggleTema()" title="Cambiar tema">
+      <svg id="theme-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1"    x2="12" y2="3"/>
+        <line x1="12" y1="21"   x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22"   x2="5.64"  y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1"  y1="12" x2="3"  y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36"/>
+        <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>
+      </svg>
+      <span id="theme-label">Modo Claro</span>
+    </button>
+    Dashboard Académico v1.0<br>Proyecto Web 2025
+  </div>
+
+</aside>
+
+<!-- ============================================================
+     CONTENIDO PRINCIPAL
+     ============================================================ -->
+<main class="main">
+
+  <!-- ── INICIO ── -->
+  <div class="page active" id="page-inicio">
+    <div class="welcome">
+      <h2 id="bienvenida">¡Hola, Estudiante! 👋</h2>
+      <p>Controla tu rendimiento académico, calcula notas y visualiza tu progreso.</p>
+    </div>
+
+    <div class="stat-grid" id="stat-grid">
+      <div class="stat-card" style="--accent-c: #5b8dee;">
+        <div class="label">Promedio General</div>
+        <div class="value" id="stat-promedio">—</div>
+        <div class="sub">Todas las materias</div>
+      </div>
+      <div class="stat-card" style="--accent-c: #3ecf8e;">
+        <div class="label">Materias Aprobadas</div>
+        <div class="value" id="stat-aprobadas">0</div>
+        <div class="sub">Nota ≥ 3.0</div>
+      </div>
+      <div class="stat-card" style="--accent-c: #f03e3e;">
+        <div class="label">Materias en Riesgo</div>
+        <div class="value" id="stat-riesgo">0</div>
+        <div class="sub">Nota &lt; 3.0</div>
+      </div>
+      <div class="stat-card" style="--accent-c: #f5c518;">
+        <div class="label">Total Materias</div>
+        <div class="value" id="stat-total">0</div>
+        <div class="sub">Registradas</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+        Resumen Académico
+      </h3>
+      <table>
+        <thead>
+          <tr><th>Materia</th><th>Promedio</th><th>Estado</th><th>Créditos</th></tr>
+        </thead>
+        <tbody id="resumen-tbody">
+          <tr><td colspan="4" class="empty"><p>No hay materias registradas aún.</p></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── MATERIAS ── -->
+  <div class="page" id="page-materias">
+    <div class="page-header">
+      <h2>Registro de Materias</h2>
+      <p>Agrega tus materias e ingresa las notas de cada evaluación</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="16"/>
+          <line x1="8"  y1="12" x2="16" y2="12"/>
+        </svg>
+        Nueva Materia
+      </h3>
+      <div id="alert-materia" class="alert alert-error"></div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="mat-nombre">Nombre de la materia *</label>
+          <input id="mat-nombre" type="text" placeholder="Ej: Cálculo I">
+        </div>
+        <div class="form-group">
+          <label for="mat-creditos">Créditos</label>
+          <input id="mat-creditos" type="number" min="1" max="10" value="3" placeholder="3">
+        </div>
+        <div class="form-group">
+          <label for="mat-semestre">Semestre</label>
+          <select id="mat-semestre">
+            <option>2025-1</option>
+            <option>2025-2</option>
+            <option>2026-1</option>
+          </select>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn" onclick="agregarMateria()">Agregar Materia</button>
+      </div>
+    </div>
+
+    <div id="lista-materias"></div>
+  </div>
+
+  <!-- ── CALCULADORA ── -->
+  <div class="page" id="page-calculadora">
+    <div class="page-header">
+      <h2>Calculadoras Académicas</h2>
+      <p>Calcula promedios, nota final y promedio ponderado por créditos</p>
+    </div>
+
+    <div class="chart-grid">
+
+      <!-- Calculadora simple -->
+      <div class="card">
+        <h3>📊 Calculadora de Promedio</h3>
+        <div id="alert-calc" class="alert alert-error"></div>
+        <div class="form-group">
+          <label>Ingresa tus notas (separadas por coma)</label>
+          <input id="calc-notas" type="text" placeholder="Ej: 3.5, 4.0, 3.8, 4.5">
+        </div>
+        <div class="btn-row">
+          <button class="btn"         onclick="calcularPromedio()">Calcular</button>
+          <button class="btn-outline" onclick="limpiarCalc()">Limpiar</button>
+        </div>
+        <div id="calc-result" style="display:none; margin-top:20px;">
+          <div class="stat-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="stat-card" style="--accent-c:#5b8dee;"><div class="label">Promedio</div><div class="value" id="res-promedio">—</div></div>
+            <div class="stat-card" style="--accent-c:#3ecf8e;"><div class="label">Nota Máx</div><div class="value" id="res-max">—</div></div>
+            <div class="stat-card" style="--accent-c:#f03e3e;"><div class="label">Nota Mín</div><div class="value" id="res-min">—</div></div>
+            <div class="stat-card" style="--accent-c:#f5c518;"><div class="label">Cantidad</div><div class="value" id="res-cant">—</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Promedio ponderado -->
+      <div class="card">
+        <h3>⚖️ Promedio Ponderado</h3>
+        <div id="alert-pond" class="alert alert-error"></div>
+        <p style="font-size:13px; color:var(--text2); margin-bottom:12px;">
+          Ingresa nota y porcentaje (%) de cada evaluación:
+        </p>
+        <div id="ponderadas-list">
+          <div class="nota-ingreso-row">
+            <input type="number" class="pond-nota" placeholder="Nota" min="0" max="5" step="0.1">
+            <input type="number" class="pond-porc" placeholder="%" min="1" max="100">
+            <button class="btn-outline btn-sm" onclick="this.parentElement.remove()">✕</button>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-outline" onclick="addPonderada()">+ Agregar fila</button>
+          <button class="btn"         onclick="calcularPonderado()">Calcular</button>
+        </div>
+        <div id="pond-result" style="display:none; margin-top:16px;" class="sim-result">
+          <div class="nota-necesaria" id="res-ponderado">—</div>
+          <p>Promedio ponderado obtenido</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Nota necesaria para aprobar -->
+    <div class="card" style="margin-top:20px;">
+      <h3>🎯 Nota Necesaria para Aprobar</h3>
+      <p style="font-size:13px; color:var(--text2); margin-bottom:16px;">
+        ¿Cuánto necesito sacar en el examen final?
+      </p>
+      <div id="alert-necesaria" class="alert alert-error"></div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nota acumulada actual</label>
+          <input id="nec-actual" type="number" placeholder="Ej: 3.2" min="0" max="5" step="0.1">
+        </div>
+        <div class="form-group">
+          <label>% del parcial acumulado</label>
+          <input id="nec-porc-acum" type="number" placeholder="Ej: 60" min="1" max="99">
+        </div>
+        <div class="form-group">
+          <label>Nota mínima para aprobar</label>
+          <input id="nec-minima" type="number" value="3.0" min="0" max="5" step="0.1">
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn" onclick="calcularNecesaria()">Calcular nota necesaria</button>
+      </div>
+      <div id="nec-result" class="sim-result">
+        <div class="nota-necesaria" id="res-necesaria">—</div>
+        <p id="res-necesaria-msg"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SIMULADOR ── -->
+  <div class="page" id="page-simulador">
+    <div class="page-header">
+      <h2>Simulador Académico</h2>
+      <p>¿Qué pasa si saco X nota en el final? Simula diferentes escenarios</p>
+    </div>
+    <div class="card">
+      <h3>🔮 Simulador de Escenarios</h3>
+      <div id="alert-sim" class="alert alert-error"></div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Selecciona una materia</label>
+          <select id="sim-materia">
+            <option value="">— Seleccionar —</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nota hipotética en el final</label>
+          <input id="sim-nota-final" type="number" placeholder="Ej: 4.5" min="0" max="5" step="0.1">
+        </div>
+        <div class="form-group">
+          <label>% que vale el examen final</label>
+          <input id="sim-porc-final" type="number" placeholder="Ej: 30" min="1" max="100" value="30">
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn"         onclick="simular()">Simular resultado</button>
+        <button class="btn-outline" onclick="simularTodos()">Simular todos los escenarios</button>
+      </div>
+      <div id="sim-result" class="sim-result">
+        <div class="nota-necesaria" id="sim-promedio-final">—</div>
+        <p id="sim-msg"></p>
+      </div>
+      <div id="sim-tabla" style="margin-top:20px; display:none;"></div>
+    </div>
+  </div>
+
+  <!-- ── GRÁFICAS ── -->
+  <div class="page" id="page-graficas">
+    <div class="page-header">
+      <h2>Estadísticas y Gráficas</h2>
+      <p>Visualiza tu rendimiento académico de forma dinámica</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card" style="--accent-c:#5b8dee;"><div class="label">Mejor Materia</div>    <div class="value" style="font-size:16px;" id="g-mejor">—</div></div>
+      <div class="stat-card" style="--accent-c:#f03e3e;"><div class="label">Materia Más Baja</div> <div class="value" style="font-size:16px;" id="g-menor">—</div></div>
+      <div class="stat-card" style="--accent-c:#3ecf8e;"><div class="label">Promedio General</div> <div class="value" id="g-promedio">—</div></div>
+      <div class="stat-card" style="--accent-c:#f5c518;"><div class="label">Materias Aprobadas</div><div class="value" id="g-aprobadas">0 / 0</div></div>
+    </div>
+
+    <div class="chart-grid">
+      <div class="card">
+        <h3>📊 Notas por Materia</h3>
+        <div class="chart-wrap"><canvas id="chart-barras"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>🥧 Distribución del Promedio</h3>
+        <div class="chart-wrap"><canvas id="chart-pie"></canvas></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h3>📈 Evolución de Notas</h3>
+      <div class="chart-wrap" style="height:220px;"><canvas id="chart-linea"></canvas></div>
+    </div>
+  </div>
+
+  <!-- ── CONFIGURACIÓN ── -->
+  <div class="page" id="page-config">
+    <div class="page-header">
+      <h2>Configuración</h2>
+      <p>Personaliza la aplicación y gestiona tus datos</p>
+    </div>
+
+    <div class="card">
+      <h3>👤 Perfil del Estudiante</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input id="cfg-nombre" type="text" placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label>Institución</label>
+          <input id="cfg-inst" type="text" placeholder="Universidad / Colegio">
+        </div>
+        <div class="form-group">
+          <label>Semestre actual</label>
+          <select id="cfg-semestre">
+            <option>2025-1</option>
+            <option>2025-2</option>
+            <option>2026-1</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nota mínima para aprobar</label>
+          <input id="cfg-minima" type="number" value="3.0" step="0.1" min="0" max="5">
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn"          onclick="guardarConfig()">Guardar configuración</button>
+        <button class="btn-outline"  onclick="exportarDatos()">📄 Exportar PDF</button>
+        <button class="btn btn-danger" onclick="limpiarDatos()">🗑 Borrar todo</button>
+      </div>
+      <div id="alert-cfg" class="alert" style="margin-top:12px;"></div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h3>🧪 Pruebas y Validaciones</h3>
+      <p style="font-size:13px; color:var(--text2); margin-bottom:14px;">
+        Ejecuta las pruebas del sistema para verificar el correcto funcionamiento.
+      </p>
+      <div class="btn-row">
+        <button class="btn" onclick="ejecutarPruebas()">▶ Ejecutar todas las pruebas</button>
+      </div>
+      <div class="test-log" id="test-log" style="margin-top:14px;"></div>
+    </div>
+  </div>
+
+</main>
+<script src="app.js"></script>
+
+</body>
+</html>
