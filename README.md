@@ -1,4 +1,7 @@
 ﻿# Informe Técnico
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ## Dashboard Inteligente de Análisis Académico Estudiantil
 
@@ -9,9 +12,11 @@
 **Institución:** Universidad del Valle - Sede Norte del Cauca  
 **Año:** 2026
 
----
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
-## Tabla de Contenido
+## Tabla de Contenido ##
 
 1. [Problema que soluciona](#1-problema-que-soluciona)
 2. [Objetivos del proyecto](#2-objetivos-del-proyecto)
@@ -25,7 +30,9 @@
 10. [Dificultades y soluciones](#10-dificultades-y-soluciones)
 11. [Conclusiones](#11-conclusiones)
 
----
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ## 1. Problema que Soluciona
 
@@ -51,7 +58,9 @@ La aplicación web permite a los estudiantes registrar materias, ingresar califi
 
 También incluye herramientas para visualizar estadísticas académicas mediante gráficas dinámicas y paneles interactivos.
 
----
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ## 2. Objetivos del Proyecto
 
@@ -68,7 +77,9 @@ Desarrollar un dashboard inteligente de análisis académico para estudiantes, q
 5. Permitir la organización de materias y notas por semestre.
 6. Incorporar validaciones y modo oscuro/claro para mejorar la experiencia del usuario.
 
----
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ## 3. Estructura del Sitio Web
 
@@ -83,6 +94,9 @@ La aplicación sigue una estructura semántica HTML5 organizada para mejorar la 
 | `<main>` | Contiene el contenido principal de la aplicación. |
 | `<section>` | Divide el contenido en bloques funcionales como materias, gráficas y calculadoras. |
 | `<footer>` | Muestra información final del proyecto. |
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ### Ejemplo de Estructura HTML
 
@@ -124,7 +138,9 @@ La aplicación sigue una estructura semántica HTML5 organizada para mejorar la 
 - Sección de gráficas.
 - Configuración de tema.
 
----
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ## 4. Herramientas Implementadas en el Dashboard
 
@@ -160,7 +176,9 @@ Cada materia cuenta con la siguiente información:
 | Promedio individual | Resultado ponderado de las notas. |
 | Estado de aprobación | Indica si la materia está aprobada, en riesgo o reprobada. |
 
----
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ## 5. Sistema de Gráficas y Estadísticas
 
@@ -184,7 +202,9 @@ Las tarjetas estadísticas muestran:
 - Materias aprobadas.
 - Materias en riesgo.
 
----
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ## 6. Diseño y Estilos
 
@@ -279,7 +299,9 @@ El diseño está enfocado en que el estudiante pueda visualizar rápidamente la 
 - **Bootstrap:** diseño responsivo y componentes visuales.
 - **Chart.js:** gráficas dinámicas e interactivas.
 
----
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ## 7. Funcionalidades Implementadas con JavaScript
 
@@ -326,13 +348,17 @@ if (input.value === '') {
 }
 ```
 
----
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ## 8. Accesibilidad y Buenas Prácticas
 
 El Dashboard Académico Estudiantil fue desarrollado teniendo en cuenta principios de accesibilidad web y buenas prácticas del desarrollo frontend moderno.
 
 ### 8.1 Etiquetas Semánticas HTML
+La estructura del HTML utiliza etiquetas semánticas para mejorar la accesibilidad y la comprensión del contenido por parte de los usuarios y motores de búsqueda.
+
 
 | Etiqueta | Uso en el proyecto |
 | --- | --- |
@@ -362,6 +388,7 @@ El Dashboard Académico Estudiantil fue desarrollado teniendo en cuenta principi
 
 ### 8.4 Contraste y Legibilidad
 
+El sistema de diseño fue construido con variables CSS personalizadas que garantizan un contraste adecuado entre texto y fondo, cumpliendo con los estándares de accesibilidad WCAG AA.
 | Elemento | Combinación de colores | Resultado |
 | --- | --- | --- |
 | Texto principal sobre fondo oscuro | `#E8EAF2` sobre `#0F1117` | Ratio aproximado: 12:1. |
@@ -379,7 +406,7 @@ El Dashboard Académico Estudiantil fue desarrollado teniendo en cuenta principi
 - Objeto de estado centralizado como fuente única de verdad.
 - Comentarios descriptivos en funciones y bloques lógicos importantes.
 
-### 8.6 Nombres Claros
+### 8.6 Buenas Prácticas: Nombres Claros
 
 | Identificador | Justificación del nombre |
 | --- | --- |
@@ -398,7 +425,9 @@ El Dashboard Académico Estudiantil fue desarrollado teniendo en cuenta principi
 - La navegación entre secciones sigue el orden lógico del documento HTML.
 - Los formularios pueden completarse sin necesidad de ratón.
 
----
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ## 9. Demostración en Vivo
 
@@ -419,6 +448,26 @@ La demostración en vivo constituye el punto central de la evaluación del proye
 ### 9.2 Funcionalidades Clave
 
 #### Funcionalidad 1: Registro y Cálculo de Promedio Ponderado
+![foto](github\workflows\1.jpeg)
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
+
+![foto](github\workflows\2.jpeg)
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
+
+![foto](github\workflows\3.jpeg)
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
+
+![foto](github\workflows\4.jpeg)
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
+
 
 Caso de prueba:
 
@@ -440,17 +489,47 @@ Cálculo:
 - Verificar que toda la interfaz cambia instantáneamente sin recargar la página.
 - Confirmar que la preferencia se guarda en `localStorage` y persiste al refrescar.
 
+![foto](github\workflows\5.jpeg)
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
+
+![foto](github\workflows\7.jpeg)
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
+
 #### Funcionalidad 3: Persistencia con localStorage
 
 - Demostrar que los datos sobreviven al cerrar y reabrir el navegador.
 - Exportar los datos mediante el botón correspondiente.
 - Mostrar el contenido del archivo exportado.
 
+![foto](github\workflows\6.jpeg)
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
+
 #### Funcionalidad 4: Validaciones en Tiempo Real
 
 - Intentar agregar una materia sin nombre y verificar el mensaje de error.
 - Intentar ingresar una nota de **6.0** y validar que se rechaza por estar fuera del rango de 0 a 5.
 - Intentar calcular un promedio ponderado con porcentajes que no sumen 100%.
+
+![foto](github\workflows\8.jpeg)
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
+
+![foto](github\workflows\9.jpeg)
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
+
+![foto](github\workflows\10.jpeg)
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ### 9.3 Caso de Uso Real
 
@@ -473,7 +552,9 @@ Flujo de uso en el dashboard:
 6. Las gráficas muestran que Cálculo Diferencial es su única materia en riesgo real.
 7. Exporta sus datos para llevarlos a su próxima sesión de estudio.
 
----
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ## 10. Dificultades y Soluciones
 
@@ -503,7 +584,9 @@ Flujo de uso en el dashboard:
 - Las validaciones deben implementarse desde el inicio del proyecto.
 - `localStorage` es útil para prototipos, pero una aplicación real requiere una base de datos más robusta.
 
----
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ## 11. Conclusiones
 
@@ -537,8 +620,13 @@ El desarrollo del Dashboard Inteligente de Análisis Académico Estudiantil fue 
 - Aplicación móvil con React Native o Capacitor.
 - Análisis predictivo con modelos simples de Machine Learning.
 
----
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
 
 ## Cierre
 
 Este proyecto demuestra cómo una aplicación web puede convertirse en una herramienta práctica para la toma de decisiones académicas. Al combinar cálculos automáticos, visualización de datos, accesibilidad y diseño responsivo, el dashboard ayuda a los estudiantes a comprender mejor su rendimiento y planificar sus acciones para mejorar.
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
+</div>
