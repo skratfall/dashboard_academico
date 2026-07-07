@@ -448,22 +448,22 @@ La demostración en vivo constituye el punto central de la evaluación del proye
 ### 9.2 Funcionalidades Clave
 
 #### Funcionalidad 1: Registro y Cálculo de Promedio Ponderado
-![foto](.github\workflows\1.jpeg)
+![foto](.github/workflows/1.jpeg)
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
 </div>
 
-![foto](.github\workflows\2.jpeg)
+![foto](.github/workflows/2.jpeg)
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
 </div>
 
-![foto](.github\workflows\3.jpeg)
+![foto](.github/workflows/3.jpeg)
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
 </div>
 
-![foto](.github\workflows\4.jpeg)
+![foto](.github/workflows/4.jpeg)
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
 </div>
@@ -489,12 +489,12 @@ Cálculo:
 - Verificar que toda la interfaz cambia instantáneamente sin recargar la página.
 - Confirmar que la preferencia se guarda en `localStorage` y persiste al refrescar.
 
-![foto](.github\workflows\5.jpeg)
+![foto](.github/workflows/5.jpeg)
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
 </div>
 
-![foto](.github\workflows\7.jpeg)
+![foto](.github/workflows/7.jpeg)
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
 </div>
@@ -505,7 +505,7 @@ Cálculo:
 - Exportar los datos mediante el botón correspondiente.
 - Mostrar el contenido del archivo exportado.
 
-![foto](.github\workflows\6.jpeg)
+![foto](.github/workflows/6.jpeg)
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
 </div>
@@ -516,17 +516,17 @@ Cálculo:
 - Intentar ingresar una nota de **6.0** y validar que se rechaza por estar fuera del rango de 0 a 5.
 - Intentar calcular un promedio ponderado con porcentajes que no sumen 100%.
 
-![foto](.github\workflows\8.jpeg)
+![foto](.github/workflows/8.jpeg)
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
 </div>
 
-![foto](.github\workflows\9.jpeg)
+![foto](.github/workflows/9.jpeg)
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
 </div>
 
-![foto](.github\workflows\10.jpeg)
+![foto](.github/workflows/10.jpeg)
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="Bottom Line" width="100%" />
 </div>
