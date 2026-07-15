@@ -5,6 +5,12 @@
 
 ## Dashboard Inteligente de Análisis Académico Estudiantil
 
+<div align="center">
+  <img src=".github/workflows/logo-dashboard.png" alt="Logo" width="200px" />
+</div>
+
+---
+
 **Autores:** Karen Jhulieth Lucumí Mosquera, Brandon Alfonso Moreno y Juan Camilo Minota Peña  
 **Asignatura:** Diseño de Interfaces  
 **Programa:** Tecnología en Desarrollo de Software  
